@@ -37,8 +37,8 @@ const { test, expect } = require('@playwright/test');
 // Define a test case for adding an employee in the PIM module
 test('OrangeHRM PIM Add Employee Test', async ({ page }) => {
 
-    // Set a timeout of 90 seconds for this test to allow for slower operations
-    test.setTimeout(90000);
+    // Set a timeout of  120 seconds for this test to allow for slower operations
+    test.setTimeout(120000);
 
     // Log visual separator and test start message to console
     console.log('==============================');
@@ -159,7 +159,7 @@ test('OrangeHRM PIM Add Employee Test', async ({ page }) => {
         // Define the first name value to be entered
         const firstName = 'Akshay';
         // Define the last name value to be entered
-        const lastName = 'Tester';
+        const lastName = 'Padia';
 
         // Log that the test is about to enter the first name value
         console.log('Entering First Name:', firstName);
@@ -219,6 +219,9 @@ test('OrangeHRM PIM Add Employee Test', async ({ page }) => {
 
         // Log that the UI is fully loaded and screenshot is about to be taken
         console.log('UI loaded, taking screenshot...');
+
+        // Wait for the page to reach network idle state to ensure all async operations are complete
+        await page.waitForLoadState('networkidle');
 
         // Capture a full-page screenshot showing the employee details page
         await page.screenshot({

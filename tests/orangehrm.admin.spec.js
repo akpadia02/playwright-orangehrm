@@ -32,7 +32,7 @@ const { test, expect } = require('@playwright/test');
 test('OrangeHRM Admin Test', async ({ page }) => {
 
   // Set a timeout of 60 seconds for this test to handle slower browser operations
-  test.setTimeout(60000);
+  test.setTimeout(120000);
 
   // Log visual separator and test start message to console
   console.log('==============================');
